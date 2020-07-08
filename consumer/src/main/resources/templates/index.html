@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>qi</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:src="@{/js/jquery-3.1.1.min.js}">
+</head>
+<body class="container bkg-class">
+    <br>
+    <h1>Information  <small>Student List</small></h1>
+    <br>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">Student</div>
+        <table class="table table-striped">
+            <THEAD>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Password</th>
+                    <th>sex</th>
+                </tr>
+            </THEAD>
+            <TBODY>
+                <tr th:each = "user:${user}">
+                    <td th:text="${user.id}" ></td>
+                    <td th:text="${user.nickName}" ></td>
+                    <td th:text="${user.password}" ></td>
+                    <td th:text="${user.sex == 0} ? '男' : '女'" ></td>
+                </tr>
+            </TBODY>
+        </table>
+    </div>
+
+</body>
+</html>

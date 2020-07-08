@@ -1,0 +1,27 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: provider
+  rabbitmq:     //配置RabbitMQ
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  datasource:      //配置数据库
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springboot?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.qi.entity
+eureka:
+  instance:
+    prefer-ip-address: true  #注册服务的时候使用服务的IP地址
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    ##检索服务信息
+    fetch-registry: true
